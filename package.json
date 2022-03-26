@@ -27,21 +27,23 @@
     "lint": "eslint . --ext .ts --fix --max-warnings 0 && prettier --write '**/*.{md,json}'",
     "lintNoFix": "eslint . --ext .ts --max-warnings 0 && prettier --check '**/*.{md,json}'",
     "lintWatch": "chokidar src/**/*.ts -c \"npm run lint\" --initial --verbose",
-    "prepare": "npm run build",
+    "prepare": "npm run snyk-protect && npm run build",
     "prepublishOnly": "npm run lintNoFix && npm run test",
     "start": "node build/src/index.js",
     "startWatch": "tsc-watch --onSuccess 'npm run start'",
     "test": "nyc mocha 'test/**/*.test.ts'",
     "testWatch": "nyc mocha --watch 'test/**/*.test.ts'",
     "preversion": "npm run build && npm run lintNoFix && npm run test",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "@xpring-eng/logger": "^1.0.0",
     "axios": "^0.19.2",
     "typescript": "^3.9.5",
     "xpring-js": "^5.0.1",
-    "yargs": "^15.4.1"
+    "yargs": "^15.4.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.2",
@@ -76,5 +78,6 @@
     "node": ">=12.0.0",
     "npm": ">=6",
     "yarn": "please use npm"
-  }
+  },
+  "snyk": true
 }
