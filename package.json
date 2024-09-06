@@ -40,8 +40,8 @@
     "@xpring-eng/logger": "^1.0.0",
     "axios": "^0.19.2",
     "typescript": "^3.9.5",
-    "xpring-js": "^5.0.1",
-    "yargs": "^15.4.1"
+    "xpring-js": "^5.1.2",
+    "yargs": "^17.6.0"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.2",
